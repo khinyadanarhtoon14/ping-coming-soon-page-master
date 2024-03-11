@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./node_modules/font-awesome/css/font-awesome.min.css">
+    <title>Frontend Mentor | Ping coming soon page</title>
+</head>
+<body>
+    <main>
+        <section class="hero">
+            <h4>PING <span>.</span></h4>
+            <h1><span>We are launching</span>  soon!</h1>
+            <small>Subscribe and get notified</small>
+            <form id="submitForm" >
+                <input type="email" id='emailInput' placeholder="Your email address" >
+                <button type="submit">Notify Me</button>
+            </form>
+             <div id="errorText" class="error"></div>
+           
+            </section>
+            
+            
+            <section class="img-section">
+            <img src="./images/illustration-dashboard.png" alt="">
+            </section>
+            
+            
+            <section class="footer">
+                <div class="icon">
+                    <i class="fa fa-facebook"></i>
+                    <i class="fa fa-twitter"></i>
+                    <i class="fa fa-instagram"></i>
+                </div>
+                
+                <small>&copy; Copyright Ping. All rights reserved.</small>
+            </section>
+      
+    </main>
+<script  >
+const submitForm=document.querySelector('#submitForm');
+const emailInput=document.querySelector('#emailInput');
+const errorText=document.querySelector('#errorText');
+function ValidateEmail(event){
+    event.preventDefault();
+    const pattern=/[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/;
+    const email=emailInput.value;
+    if(!email.match(pattern)){
+        errorText.innerText='Please Provide a valid email address.';
+        emailInput.focus();
+    }else{
+        errorText.textContent='';
+    }
+    
+}
+submitForm.addEventListener('submit',ValidateEmail);
+
+
+
+</script>
+</body>
+
+</html>
